@@ -286,6 +286,7 @@
       body.classList.add('is-opened');
       var _op = document.querySelector('.opening'); if (_op) _op.remove();
       var _fc = document.querySelector('.floatcta'); if (_fc) _fc.style.display = 'none';
+      var _hero = document.querySelector('.hero'); if (_hero) { _hero.style.minHeight = '0'; _hero.style.height = '860px'; }
       document.querySelectorAll('.r, .r-up').forEach(function (e) { e.classList.add('is-in'); });
     } else {
       initOpening();
