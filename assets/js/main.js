@@ -280,12 +280,21 @@
      8. 起動
      --------------------------------------------------------- */
   function init() {
-    initOpening();
+    // 撮影用フラグ（?shot=）: 演出をスキップして静止状態にする。通常表示には影響しない
+    var SHOT = location.search.indexOf('shot=') !== -1;
+    if (SHOT) {
+      body.classList.add('is-opened');
+      var _op = document.querySelector('.opening'); if (_op) _op.remove();
+      var _fc = document.querySelector('.floatcta'); if (_fc) _fc.style.display = 'none';
+      document.querySelectorAll('.r, .r-up').forEach(function (e) { e.classList.add('is-in'); });
+    } else {
+      initOpening();
+    }
     initLenis();
     initHeader();
     initHeroSlider();
     initParallax();
-    initReveal();
+    if (!SHOT) initReveal();
     initForm();
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
