@@ -1,0 +1,7 @@
+_build/
+_docs/
+_rough/
+node_modules/
+*.ps1
+.DS_Store
+Thumbs.db
